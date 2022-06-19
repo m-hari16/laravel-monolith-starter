@@ -4,8 +4,8 @@
 
 <div class="container-fluid mt-4">
     <div class="row mt-4">
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
             <h3 class="mt-4 mb-2 pl-4 pr-4">Login</h3>
 
             @if (session()->has('success'))
@@ -46,11 +46,14 @@
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Login</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary mt-3">Login</button>
+                        <p class="mt-3">Don't have an account ? <a href="/register">Register</a></p>
+                    </div>
                 </form>
             </div>
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-4"></div>
     </div>
 </div>
     

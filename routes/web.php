@@ -16,13 +16,17 @@ Route::get('/', function () {
     return view('pages/welcome');
 });
 
-// Auth Routes
-Route::get('login', 'Auth\LoginController@index');
-Route::post('login', 'Auth\LoginController@attempt');
-Route::get('register', 'Auth\RegisterController@index');
-Route::post('register', 'Auth\RegisterController@store');
+Route::group(['middleware'=>'auth'], function(){
+    // Auth Routes
+    Route::post('logout', 'Auth\LogoutController@logout');
+    
+    // Notes Routes
+    Route::get('notes', 'Notes\NotesController@index');
+});
 
-
-// Notes Routes
-Route::get('notes', 'Notes\NotesController@index');
-Route::resource('notes', 'Notes\NotesController')->except('edit');
+Route::group(['middleware'=>'guest'], function(){
+    Route::get('login', 'Auth\LoginController@index')->name('login');
+    Route::post('login', 'Auth\LoginController@attempt');
+    Route::get('register', 'Auth\RegisterController@index');
+    Route::post('register', 'Auth\RegisterController@store');
+});
