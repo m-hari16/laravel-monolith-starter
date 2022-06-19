@@ -18,6 +18,8 @@ class CreateNotesTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('body');
+            $table->integer('user_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

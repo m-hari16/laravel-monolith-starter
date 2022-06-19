@@ -10,4 +10,13 @@ class Notes extends Model
     protected $fillable = [
         'title', 'slug', 'body'
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public static function cekSlug(): String
+    {
+        return "notes";
+    }
 }

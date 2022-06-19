@@ -22,6 +22,7 @@ Route::group(['middleware'=>'auth'], function(){
     
     // Notes Routes
     Route::get('notes', 'Notes\NotesController@index');
+    Route::post('notes', 'Notes\NotesController@store');
 });
 
 Route::group(['middleware'=>'guest'], function(){
