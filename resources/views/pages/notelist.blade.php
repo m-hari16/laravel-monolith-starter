@@ -41,7 +41,7 @@
               <h5 class="card-title font-weight-bold">{{$item->title}}</h5>
               <h6 class="card-subtitle mb-4 mt-0.5 text-muted">{{$item->created_at}}</h6>
               <p class="mb-4 card-text">{{substr($item->body, 0, 50)}}</p>
-              <a href="/note/"{{$item->slug}}>Show Detail</a>
+              <a href="{{ URL::to('note/' . $item->slug) }}">Show Detail</a>
             </div>
           </div>  
         </div>

@@ -45,6 +45,15 @@ class NotesController extends Controller
         $data->save();
 
         return redirect('/notes');
+    }
 
+    public function show(Request $req)
+    {
+        $user = Auth::user()->id ?? null;
+        $data = Notes::where('user_id', $user)->where('slug', $req->slug)->first(['title', 'body', 'created_at']);
+
+        return view('pages.note', [
+            'data' => $data
+        ]);
     }
 }
