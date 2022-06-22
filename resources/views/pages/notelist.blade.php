@@ -10,6 +10,15 @@
       </button>
       {{-- End Triger Modal --}}
 
+      @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>{{session('success')}}</strong>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      @endif
+
       {{-- Modal Add Notes --}}
       <div class="modal fade" id="addNote" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
